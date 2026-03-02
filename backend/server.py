@@ -99,3 +99,31 @@ logger = logging.getLogger(__name__)
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
+
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
+
+# Define potential paths (going up from 'backend' into 'frontend')
+frontend_base = Path(__file__).parent.parent / "frontend"
+dist_path = frontend_base / "dist"
+build_path = frontend_base / "build"
+
+# Use whichever one exists
+final_path = dist_path if dist_path.exists() else build_path
+
+if final_path.exists():
+    # Serve static files (CSS/JS)
+    app.mount("/static", StaticFiles(directory=str(final_path / "static")), name="static")
+    
+    # Catch-all to serve the main HTML file
+    @app.get("/{full_path:path}")
+    async def serve_frontend(full_path: str):
+        # If the request is for an actual file in the folder, serve it
+        file_path = final_path / full_path
+        if file_path.is_file():
+            return FileResponse(file_path)
+        # Otherwise, send them to index.html (important for React Router)
+        return FileResponse(final_path / "index.html")
+else:
+    print(f"ERROR: No frontend build folder found at {dist_path} or {build_path}")
