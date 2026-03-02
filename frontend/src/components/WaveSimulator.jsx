@@ -155,7 +155,7 @@ export const WaveSimulator = () => {
     if (c) c.getContext('2d').clearRect(0, 0, c.width, c.height);
   };
 
-  const waveNames = { p: 'Unda P', s: 'Unda S', love: 'Love', rayleigh: 'Rayleigh' };
+  const waveNames = { p: 'Primara', s: 'Secundara', love: 'Love', rayleigh: 'Rayleigh' };
 
   return (
     <div data-testid="wave-simulator">
@@ -188,8 +188,8 @@ export const WaveSimulator = () => {
             </label>
             <Tabs value={waveType} onValueChange={setWaveType}>
               <TabsList className="grid grid-cols-4 w-full bg-muted/50">
-                <TabsTrigger value="p" className="text-xs font-outfit" data-testid="tab-p">P</TabsTrigger>
-                <TabsTrigger value="s" className="text-xs font-outfit" data-testid="tab-s">S</TabsTrigger>
+                <TabsTrigger value="p" className="text-xs font-outfit" data-testid="tab-p">Primara</TabsTrigger>
+                <TabsTrigger value="s" className="text-xs font-outfit" data-testid="tab-s">Secundara</TabsTrigger>
                 <TabsTrigger value="love" className="text-xs font-outfit" data-testid="tab-love">Love</TabsTrigger>
                 <TabsTrigger value="rayleigh" className="text-xs font-outfit" data-testid="tab-rayleigh">Rayleigh</TabsTrigger>
               </TabsList>
