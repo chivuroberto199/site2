@@ -38,8 +38,8 @@ export default function ApplicationsPage() {
                 <Waves className="w-5 h-5 text-cyan-400" />
               </div>
               <div>
-                <h2 className="font-outfit font-bold text-2xl">Simulare Unda</h2>
-                <p className="text-muted-foreground text-sm">Ajusteaza amplitudinea, frecventa si tipul undei</p>
+                <h2 className="font-outfit font-bold text-2xl">Simulare Unde</h2>
+                <p className="text-muted-foreground text-sm">Ajusteaza amplitudinea, frecventa si tipul undei.</p>
               </div>
             </div>
             <WaveSimulator />
@@ -53,7 +53,7 @@ export default function ApplicationsPage() {
               </div>
               <div>
                 <h2 className="font-outfit font-bold text-2xl">Seismograf Virtual</h2>
-                <p className="text-muted-foreground text-sm">Simuleaza cutremure de diferite intensitati si observa inregistrarea in timp real</p>
+                <p className="text-muted-foreground text-sm">Simuleaza cutremure de diferite intensitati si observa inregistrarea in timp real.</p>
               </div>
             </div>
             <VirtualSeismograph />
@@ -67,7 +67,7 @@ export default function ApplicationsPage() {
               </div>
               <div>
                 <h2 className="font-outfit font-bold text-2xl">Harta Zonelor Seismice</h2>
-                <p className="text-muted-foreground text-sm">Exploreaza principalele zone seismice ale lumii — click pe un punct pentru detalii</p>
+                <p className="text-muted-foreground text-sm">Exploreaza principalele zone seismice ale lumii, click pe un punct pentru detalii.</p>
               </div>
             </div>
             <SeismicMap />
@@ -81,7 +81,7 @@ export default function ApplicationsPage() {
               </div>
               <div>
                 <h2 className="font-outfit font-bold text-2xl">Videoclipuri Educationale</h2>
-                <p className="text-muted-foreground text-sm">Materiale video pentru o intelegere mai profunda</p>
+                <p className="text-muted-foreground text-sm">Materiale video pentru o intelegere mai profunda.</p>
               </div>
             </div>
 
