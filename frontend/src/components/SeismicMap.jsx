@@ -6,7 +6,7 @@ const zones = [
   { id: 1, name: 'Centura de Foc a Pacificului', x: -150, y: 0, risk: 'high', info: 'Cea mai activa zona seismica din lume, responsabila pentru ~90% din cutremurele globale. Se intinde pe 40.000 km.' },
   { id: 2, name: 'Centura Alpino-Himalayană', x: 70, y: 35, risk: 'high', info: 'Se intinde din Mediterana pana in Asia de Sud-Est. Include Alpii, Carpatii, Himalaya.' },
   { id: 3, name: 'Dorsala Medio-Atlantică', x: -30, y: 0, risk: 'medium', info: 'Lant muntos submarin de 16.000 km, zona de divergenta a placilor tectonice.' },
-  { id: 4, name: 'Vrancea, Romania', x: 26.6, y: 45.7, risk: 'high', info: 'Zona seismica cea mai activa din Romania. Sursa cutremurelor intermediare cu magnitudini de pana la 7.9 (1977).' },
+  { id: 4, name: 'Vrancea, Romania', x: 30, y: 49, risk: 'high', info: 'Zona seismica cea mai activa din Romania. Sursa cutremurelor intermediare cu magnitudini de pana la 7.9 (1977).' },
   { id: 5, name: 'Riftul Est-African', x: 35, y: -5, risk: 'medium', info: 'Zona de extensie continentala activa, unde Africa se desparte in doua placi separate.' },
   { id: 6, name: 'Zona Sundei (Indonezia)', x: 100, y: -3, risk: 'high', info: 'Intersectia placilor Indo-Australiana si Eurasiatica. Sursa tsunamiului din 2004.' },
   { id: 7, name: 'Falia San Andreas', x: -120, y: 36, risk: 'high', info: 'Falie transformanta de 1.300 km in California. Risc major pentru cutremure devastatoare.' },
@@ -57,7 +57,7 @@ export const SeismicMap = () => {
       {/* Reduced W/H for all three states */}
       <span className={`relative block rounded-full ${
         z.id === 4
-          ? 'w-3 h-3 bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.8)]' // was w-4 h-4
+          ? 'w-1.5 h-1.5 bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.8)]' // was w-4 h-4
           : z.risk === 'high'
           ? 'w-2 h-2 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]'    // was w-3 h-3
           : 'w-1.5 h-1.5 bg-amber-500 shadow-[0_0_6px_rgba(245,158,11,0.6)]' // was w-2.5 h-2.5
