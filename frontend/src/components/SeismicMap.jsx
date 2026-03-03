@@ -6,7 +6,7 @@ const zones = [
   { id: 1, name: 'Centura de Foc a Pacificului', x: -150, y: 0, risk: 'high', info: 'Cea mai activa zona seismica din lume, responsabila pentru ~90% din cutremurele globale. Se intinde pe 40.000 km.' },
   { id: 2, name: 'Centura Alpino-Himalayană', x: 70, y: 35, risk: 'high', info: 'Se intinde din Mediterana pana in Asia de Sud-Est. Include Alpii, Carpatii, Himalaya.' },
   { id: 3, name: 'Dorsala Medio-Atlantică', x: -30, y: 0, risk: 'medium', info: 'Lant muntos submarin de 16.000 km, zona de divergenta a placilor tectonice.' },
-  { id: 4, name: 'Vrancea, Romania', x: 21, y: 51, risk: 'high', info: 'Zona seismica cea mai activa din Romania. Sursa cutremurelor intermediare cu magnitudini de pana la 7.9 (1977).' },
+  { id: 4, name: 'Vrancea, Romania', x: 21, y: 50.7, risk: 'high', info: 'Zona seismica cea mai activa din Romania. Sursa cutremurelor intermediare cu magnitudini de pana la 7.9 (1977).' },
   { id: 5, name: 'Riftul Est-African', x: 35, y: -5, risk: 'medium', info: 'Zona de extensie continentala activa, unde Africa se desparte in doua placi separate.' },
   { id: 6, name: 'Zona Sundei (Indonezia)', x: 100, y: -3, risk: 'high', info: 'Intersectia placilor Indo-Australiana si Eurasiatica. Sursa tsunamiului din 2004.' },
   { id: 7, name: 'Falia San Andreas', x: -120, y: 36, risk: 'high', info: 'Falie transformanta de 1.300 km in California. Risc major pentru cutremure devastatoare.' },
