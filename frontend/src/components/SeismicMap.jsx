@@ -35,60 +35,44 @@ export const SeismicMap = () => {
       />
 
       {/* ================= REAL TECTONIC PLATE BOUNDARIES ================= */}
-      <svg
-        viewBox="0 0 100 50"
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        style={{ opacity: 0.35 }}
-      >
-        {/* Pacific Ring of Fire */}
-        <path d="M5 10 Q10 20 8 35 Q10 45 18 48 M95 10 Q90 25 92 40 Q88 48 82 50" fill="none" stroke="#ef4444" strokeWidth="0.4" strokeDasharray="2,2"/>
-        {/* Mid-Atlantic Ridge */}
-        <path d="M48 2 Q50 15 49 30 Q48 40 50 48" fill="none" stroke="#f97316" strokeWidth="0.4" strokeDasharray="2,2"/>
-        {/* Alpide Belt */}
-        <path d="M30 25 Q45 20 60 25 Q75 30 90 28" fill="none" stroke="#ef4444" strokeWidth="0.4" strokeDasharray="2,2"/>
-        {/* East African Rift */}
-        <path d="M56 30 Q57 35 56 42" fill="none" stroke="#facc15" strokeWidth="0.4" strokeDasharray="2,2"/>
-        {/* Sunda Trench */}
-        <path d="M70 30 Q75 35 80 38" fill="none" stroke="#ef4444" strokeWidth="0.4" strokeDasharray="2,2"/>
-        {/* San Andreas Fault */}
-        <path d="M15 25 Q14 30 16 35" fill="none" stroke="#ef4444" strokeWidth="0.4" strokeDasharray="2,2"/>
-        {/* Japan Trench */}
-        <path d="M85 22 Q83 27 84 32" fill="none" stroke="#ef4444" strokeWidth="0.4" strokeDasharray="2,2"/>
-      </svg>
       {/* ================================================================ */}
 
       {/* Zone markers */}
-      {zones.map((z) => {
-        const projected = project(z.x, z.y);
+{zones.map((z) => {
+  const projected = project(z.x, z.y);
 
-        return (
-          <button
-            key={z.id}
-            className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
-            style={{ left: `${projected.x}%`, top: `${projected.y}%` }}
-            onClick={() => setActive(active?.id === z.id ? null : z)}
-            data-testid={`zone-${z.id}`}
-          >
-            <span className={`absolute inset-[-6px] rounded-full animate-ping ${
-              z.id === 4 ? 'bg-cyan-400/30' : z.risk === 'high' ? 'bg-red-500/20' : 'bg-amber-500/15'
-            }`} />
-            <span className={`relative block rounded-full ${
-              z.id === 4
-                ? 'w-4 h-4 bg-cyan-400 shadow-[0_0_16px_rgba(6,182,212,0.8)]'
-                : z.risk === 'high'
-                ? 'w-3 h-3 bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.6)]'
-                : 'w-2.5 h-2.5 bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.6)]'
-            }`} />
-            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block whitespace-nowrap bg-card/95 backdrop-blur-sm text-foreground text-xs px-2.5 py-1.5 rounded-md font-manrope border border-border shadow-lg">
-              {z.name}
-            </span>
-          </button>
-        );
-      })}
+  return (
+    <button
+      key={z.id}
+      className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
+      style={{ left: `${projected.x}%`, top: `${projected.y}%` }}
+      onClick={() => setActive(active?.id === z.id ? null : z)}
+      data-testid={`zone-${z.id}`}
+    >
+      {/* Reduced ping area from -6px to -4px */}
+      <span className={`absolute inset-[-4px] rounded-full animate-ping ${
+        z.id === 4 ? 'bg-cyan-400/30' : z.risk === 'high' ? 'bg-red-500/20' : 'bg-amber-500/15'
+      }`} />
+      
+      {/* Reduced W/H for all three states */}
+      <span className={`relative block rounded-full ${
+        z.id === 4
+          ? 'w-3 h-3 bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.8)]' // was w-4 h-4
+          : z.risk === 'high'
+          ? 'w-2 h-2 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]'    // was w-3 h-3
+          : 'w-1.5 h-1.5 bg-amber-500 shadow-[0_0_6px_rgba(245,158,11,0.6)]' // was w-2.5 h-2.5
+      }`} />
+      
+      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block whitespace-nowrap bg-card/95 backdrop-blur-sm text-foreground text-[10px] px-2 py-1 rounded-md font-manrope border border-border shadow-lg">
+        {z.name}
+      </span>
+    </button>
+  );
+})}
 
       {/* Active zone info panel */}
       {active && (
-        <div className="absolute bottom-3 left-3 right-3 md:left-auto md:right-3 md:w-80 backdrop-blur-xl bg-card/95 border border-border rounded-xl p-4 z-20 shadow-xl" data-testid="zone-info-panel">
+        <div className="absolute bottom-3 left-3 right-3 md:right-auto md:left-3 md:w-80 backdrop-blur-xl bg-card/95 border border-border rounded-xl p-4 z-20 shadow-xl" data-testid="zone-info-panel">
           <div className="flex items-start justify-between mb-2">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-cyan-500 shrink-0" />
